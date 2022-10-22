@@ -13,9 +13,9 @@ public class Title : MonoBehaviour
     private InputField playerNameForm;
 
     /// <summary>
-    /// これ呼び出したらシーン遷移してくれて次のシーンにプレイヤーの名前渡してくれます。
+    /// これ呼び出したらゲームモードにシーン遷移してくれて次のシーンにプレイヤーの名前渡してくれます。
     /// </summary>
-    public async void PassTitleToTake()
+    public async void PassTitleToGameMode()
     {
         var nextScene = await SceneLoader.Load<GameMode>("GameMode");
         nextScene.SetArguments(playerNameForm.text);
