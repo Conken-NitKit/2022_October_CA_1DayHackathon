@@ -8,20 +8,20 @@ using UnityEngine;
 public class Main : MonoBehaviour
 {
     private string _playerName;
-    private int _reachedStageNum;
+    public int reachedStageNum;
     
     public void SetArguments(string playerName,int reachedStageNum)
     {
         _playerName = playerName;
-        _reachedStageNum = reachedStageNum;
+        this.reachedStageNum = reachedStageNum;
     }
     /// <summary>
     /// これ呼び出したらメインにシーン遷移してくれて次のシーンにプレイヤーの名前と到達ステージ数渡してくれます。。
     /// </summary>
-    public async void PassMainToResult()
+    public async void PassMainToResult(int lastLevel)
     {
         var nextScene = await SceneLoader.Load<Result>("Result");
-        nextScene.SetArguments(_playerName,_reachedStageNum);
+        nextScene.SetArguments(_playerName,reachedStageNum,lastLevel);
     }
     
     /// <summary>
@@ -30,6 +30,6 @@ public class Main : MonoBehaviour
     public async void PassMainToMain()
     {
         var nextScene = await SceneLoader.Load<Main>("Main");
-        nextScene.SetArguments(_playerName,_reachedStageNum);
+        nextScene.SetArguments(_playerName,reachedStageNum + 1);
     }
 }

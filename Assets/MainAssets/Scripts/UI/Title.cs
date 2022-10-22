@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class Title : MonoBehaviour
 {
     [SerializeField] 
-    private InputField playerNameForm;
+    private Text playerName;
 
     /// <summary>
     /// これ呼び出したらゲームモードにシーン遷移してくれて次のシーンにプレイヤーの名前渡してくれます。
@@ -18,7 +18,7 @@ public class Title : MonoBehaviour
     public async void PassTitleToGameMode()
     {
         var nextScene = await SceneLoader.Load<GameMode>("GameMode");
-        nextScene.SetArguments(playerNameForm.text);
+        nextScene.SetArguments(playerName.text);
     }
 
 }

@@ -23,6 +23,6 @@ public class GameMode : MonoBehaviour
     public async void PassGameModeToMain()
     {
         var nextScene = await SceneLoader.Load<Main>("Main");
-        nextScene.SetArguments(_playerName,0);
+        nextScene.SetArguments(_playerName,1);
     }
 }
