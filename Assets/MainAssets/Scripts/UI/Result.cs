@@ -19,7 +19,7 @@ public class Result : MonoBehaviour
     /// <summary>
     /// これ呼び出したらゲームモードにシーン遷移してくれて次のシーンにプレイヤーの名前渡してくれます。
     /// </summary>
-    public async void PassTitleToGameMode()
+    public async void PassResultToGameMode()
     {
         var nextScene = await SceneLoader.Load<GameMode>("GameMode");
         nextScene.SetArguments(_playerName);

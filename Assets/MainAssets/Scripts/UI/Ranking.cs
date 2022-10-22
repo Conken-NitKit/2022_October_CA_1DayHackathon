@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Ranking : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private string _playerName;
+    
+    /// <summary>
+    /// 値をもらう関数
+    /// </summary>
+    public void SetArguments(string playerName)
     {
-        
+        _playerName = playerName;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    /// <summary>
+    /// これ呼び出したらゲームモードにシーン遷移してくれて次のシーンにプレイヤーの名前渡してくれます。
+    /// </summary>
+    public async void PassRankingToGameMode()
     {
-        
+        var nextScene = await SceneLoader.Load<GameMode>("GameMode");
+        nextScene.SetArguments(_playerName);
     }
 }

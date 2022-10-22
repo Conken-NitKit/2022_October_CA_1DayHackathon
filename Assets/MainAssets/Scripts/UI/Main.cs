@@ -16,7 +16,7 @@ public class Main : MonoBehaviour
         _reachedStageNum = reachedStageNum;
     }
     /// <summary>
-    /// これ呼び出したらリザルトにシーン遷移してくれて次のシーンにプレイヤーの名前渡してくれます。
+    /// これ呼び出したらメインにシーン遷移してくれて次のシーンにプレイヤーの名前と到達ステージ数渡してくれます。。
     /// </summary>
     public async void PassMainToResult()
     {
@@ -25,7 +25,7 @@ public class Main : MonoBehaviour
     }
     
     /// <summary>
-    /// これ呼び出したらメインにシーン遷移してくれて次のシーンにプレイヤーの名前渡してくれます。
+    /// これ呼び出したらメインにシーン遷移してくれて次のシーンにプレイヤーの名前と到達ステージ数渡してくれます。
     /// </summary>
     public async void PassMainToMain()
     {
