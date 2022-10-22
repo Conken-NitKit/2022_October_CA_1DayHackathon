@@ -10,7 +10,7 @@ public class Result : MonoBehaviour
     private string _playerName;
     private int _reachedStageNum;
     
-    public void SetArguments(string playerName,int reachedStageNum)
+    public void SetArguments(string playerName,int reachedStageNum,int lastLevel)
     {
         _playerName = playerName;
         _reachedStageNum = reachedStageNum;
