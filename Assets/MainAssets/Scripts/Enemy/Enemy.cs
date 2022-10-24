@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private Rigidbody2D _rigidbody2D;
+
+    [SerializeField]
+    private GameManager gameManager;
     
     private void Start()
     {
@@ -64,9 +67,9 @@ public class Enemy : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            if (true /*!other.GetComponent<Player>().isHide*/)
+            if (!other.gameObject.GetComponent<PlayerStaus>().isHide)
             {
-                Debug.Log("GameOver");
+                gameManager.GameOver();
             }
         }
     }
