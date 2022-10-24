@@ -69,9 +69,19 @@ public class Player : MonoBehaviour
 
         if(Input.GetKey(/*rightMoveKey*/KeyCode.D))
         {
-            xSpeed = runSpeed;  
+            xSpeed = runSpeed;
+            if (this.gameObject.transform.localScale.x > 0)
+            {
+                this.gameObject.transform.localScale = new Vector3(this.gameObject.transform.localScale.x * -1,
+                    this.gameObject.transform.localScale.y);
+            }
         }else if(Input.GetKey(/*leftMoveKey*/KeyCode.A)){
             xSpeed = -runSpeed;
+            if (this.gameObject.transform.localScale.x < 0)
+            {
+                this.gameObject.transform.localScale = new Vector3(this.gameObject.transform.localScale.x * -1,
+                    this.gameObject.transform.localScale.y);
+            }
         }else
         {
             xSpeed = neutralSpeed;
@@ -84,7 +94,7 @@ public class Player : MonoBehaviour
         
         if(isGround){
             if(Input.GetKeyDown(/*jumpKey*/KeyCode.R)){
-                rigidbody.AddForce(new Vector2(0f,jumpForce));
+                rigidbody.AddForce(new Vector2(0f,jumpForce),ForceMode2D.Force);
             }
         }
         
@@ -99,7 +109,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("testground"))
+        if(collision.gameObject.CompareTag("Stage"))
         {
             isGround = true;
         }
@@ -108,7 +118,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("testground"))
+        if(collision.gameObject.CompareTag("Stage"))
         {
             isGround = true;
         }
@@ -116,7 +126,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("testground"))
+        if(collision.gameObject.CompareTag("Stage"))
         {
             isGround = false;
         }

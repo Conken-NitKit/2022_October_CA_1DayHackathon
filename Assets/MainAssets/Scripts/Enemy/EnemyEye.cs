@@ -18,7 +18,7 @@ public class EnemyEye : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (true /*!other.GetComponent<Player>().isHide*/)
+            if (!other.gameObject.GetComponent<PlayerStaus>().isHide)
             {
                 _enemy.ChasePlayer();
             }
@@ -28,7 +28,7 @@ public class EnemyEye : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (true /*!other.GetComponent<Player>().isHide*/)
+            if (other.gameObject.GetComponent<PlayerStaus>().isHide)
             {
                 _enemy.MoveNormal();
             }

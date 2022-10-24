@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         _main.PassMainToMain();
     }
     
+    [Button]
     public void GameOver()
     {
         _main.PassMainToResult(nowLevel);
